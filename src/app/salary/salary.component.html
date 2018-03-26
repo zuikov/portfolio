@@ -1,0 +1,241 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-lg-3" id="left-page">
+            <h5>Technical design specification</h5>
+            <p>Implement realization of the project financial accounting object: </p>
+            <dl>
+                <dt>participants</dt>
+                <dd>- predefined array of participants</dd>
+                <dt>pricing</dt>
+                <dd>- predefined object (keyvalue collection) of pricing </dd>
+
+                <dt>findParticipant method</dt>
+                <dd>- should pass found participant into callback, stops on first match.
+                    <br>
+                    <code>functor</code> - function that will be executed for elements of participants array.
+                    <br>
+                    <code>callbackFunction</code> - function that will be executed with found participant as argument or with null
+                    if not. </dd>
+
+                <dt>findParticipants method</dt>
+                <dd>- should pass array of found participants into callback.
+                    <br>
+                    <code>functor</code> - function that will be executed for elements of participants array.
+                    <br>
+                    <code>callbackFunction</code> - function that will be executed with array of found participants as argument
+                    or empty array if not. </dd>
+
+                <dt>addParticipant method</dt>
+                <dd>- should push new participant into this.participants array.
+                    <br>
+                    <code>callbackFunction</code> - function that will be executed when job will be done.</dd>
+
+                <dt>removeParticipant method</dt>
+                <dd>- should remove participant from this.participants array. Callback should receive removed participant.
+                    <br>
+                    <code>callbackFunction</code> - function that will be executed with object of removed participant or null if
+                    participant wasn't found when job will be done</dd>
+
+                <dt>setPricing method</dt>
+                <dd>- should extends
+                    <code>this.pricing</code> with new field or change existing.
+                    <br>
+                    <code> callbackFunction</code> - function that will be executed when job will be done, doesn't take any arguments.</dd>
+
+                <dt>calculateSalary method</dt>
+                <dd>- should calculates salary of all participants in the given period periodInDays, has type number, one day
+                    is equal 8 working hours </dd>
+            </dl>
+            <p>
+                All methods which include callbackFunction in the arguments list should make their job in setTimeout and return result in
+                callback.
+                <br> All methods which include callbackFunction in the arguments list should set isBusy to true value when start
+                their job and set it to false when finished.
+                <br> If isBusy is true method shuoldn't do any job and immediately return false.
+                
+
+            </p>
+
+        </div>
+
+        <div class="col-md-12 col-lg-5" id="right-page">
+            <div class="application-area">
+                <h4>Calculation of salary</h4>
+
+                <!--------------------- Find participant and Find participants methods view ------------------------>
+                    <div class="input-box bg-success">
+
+                        <!-- <div class="form-inline"> -->
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="text" required class="form-control" name="seniorityLevel"
+                                     [(ngModel)]="seniorityLevel" placeholder="seniorityLevel"
+                                        queryString.value='' />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="text" required class="form-control" name="firstName"
+                                         [(ngModel)]="firstName" placeholder="firstName"
+                                            queryString.value='' />
+                                    </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="text" required class="form-control" name="lastName"
+                                         [(ngModel)]="lastName" placeholder="lastNamee"
+                                            queryString.value='' />
+                                    </div>
+                            </div>
+
+                        <!-- </div> -->
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <button class="btn btn-info" (click)="setParticipant(seniorityLevel, firstName, lastName)"
+                                    (click)="findParticipant(functorForParticipant, callbackFunction)">Find participant</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                    <div class="col-md-4">
+                                        <button class="btn btn-info" (click)="setParticipant(seniorityLevel, firstName, lastName)"
+                                         (click)="findParticipants(functorForParticipant, callbackFunction)">Find participants</button>
+                                    </div>
+                            </div>
+
+                            <div class="form-group">
+                                    <div class="col-md-4">
+                                        <button class="btn btn-info" (click)="setParticipant(seniorityLevel, firstName, lastName)"
+                                        (click)="addParticipant(requiredParticipant, callbackFunction)">Add participant</button>
+                                    </div>
+                            </div>
+
+                            <div class="form-group">
+                                    <div class="col-md-4">
+                                        <button class="btn btn-danger" (click)="setParticipant(seniorityLevel, firstName, lastName)"
+                                        (click)="removeParticipant(requiredParticipant, callbackFunction)">Remove participant</button>
+                                    </div>
+                            </div>
+
+                        <div class="message"  *ngIf="foundParticipantsNumbers[0]" [ngStyle]="{'border-color': borderColor}">
+                                <p *ngFor="let foundParticipantNumber of foundParticipantsNumbers; let i = index">
+                                    Partisipant is found. His numder is {{ foundParticipantsNumbers[i] }} </p>
+                            </div>
+                       
+                        
+                        <div class="message" *ngIf="participantNotFoundMessage" [ngStyle]="{'border-color': borderColor}">
+                            <p> {{ participantNotFoundMessage }}</p>
+                        </div>
+               
+                    </div>
+
+                <!-------------------- Set pricing method view ------------------------>   
+                <div class="input-box bg-success">
+                    
+                    <div class="form-group has-warning">
+                        <div class="col-md-12">
+                            <input type="text" required class="form-control" name="seniorityLevel"
+                            [(ngModel)]="seniorityLevel" placeholder="seniorityLevel"
+                                queryString.value='' />
+                        </div>
+                    </div>
+
+                    <div class="form-group has-warning">
+                            <div class="col-md-12">
+                                <input type="number" required class="form-control" name="price"
+                                [(ngModel)]="price" placeholder="price"
+                                    queryString.value='' />
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                            <div class="col-md-4">
+                                <button class="btn btn-info" (click)="setPricing(seniorityLevel, price,  callbackFunction)">
+                                    Set price</button>
+                            </div>
+                        </div>
+                </div>
+
+                <!-- ------------------------------------------------------------------------------------- -->
+                <div class="input-box bg-success">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="number" class="form-control" name="periodInDays" 
+                            [(ngModel)]="periodInDays" placeholder="Period length in days for calculating"
+                                queryString.value='' />
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <button class="btn btn-info" (click)="calculateSalary(periodInDays)">Calculate salary</button>
+                        </div>
+                    </div>
+
+                    <div class="result" *ngIf="salary" [ngStyle]="{'border-color': borderColor}">
+                            <p>Salary for {{ periodInDays }} day(s) period is {{ salary }}</p>
+                        </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+        <div class="col-md-12 col-lg-4" id="right-column">
+            <h5>Participants object</h5>
+
+            <table class="table table-bordered table-striped">
+                <thead class="thead-light">    
+                    <tr>
+                        <th>number</th>
+                        <th>Level</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let participant of participants; let i = index">
+                        <td>{{ i+1 }} </td>
+                        <td>{{ participants[i].seniorityLevel }}</td>
+                        <td>{{ participants[i].firstName }}</td>
+                        <td>{{ participants[i].lastName }}</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+
+
+            <h5>Pricing object</h5>
+
+
+
+
+            <table class="table table-bordered table-striped">
+                    <!-- <thead> -->
+                    <thead class="thead-light">    
+                        <tr>
+                            <th>number</th>
+                            <th>Level</th>
+                            <th>Price</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let seniorityLevel of priceArray; let i = index">
+                            <td>{{ i+1 }} </td>
+                            <td>{{ priceArray[i].seniorityLevel }}</td>
+                            <td>{{ priceArray[i].price }}</td>
+                            
+                        </tr>
+                        
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>

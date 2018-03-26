@@ -1,0 +1,155 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-lg-3" id="left-page">
+            <h5>Technical design specification</h5>
+            <p>You should create a newsletter object:</p>
+            <p>feild title and field content is required and it shouldn't be an empty strings.</p>
+            <dt>_isBusy</dt>
+            <dd>- keeps inside distribution condition. Methods
+                <code>addArticle</code>,
+                <code>removeArticle</code> and
+                <code>find</code> should set isBusy to true value when start their
+                 job and set it to false when finished. </dd>
+            
+            <dt>addArticle method</dt>
+            <dd>- should add new article into <code>_artcles</code> array.
+                <br>
+                <code>callbackFunction</code> - function that will be executed when job will be done.</dd>
+            
+            <dt>removeArticle method</dt>
+            <dd>- should remove article from <code> articles</code> array. Callback should receive removed article
+                 or null if such article isn\'t exists.
+                <br>
+                <code>callbackFunction</code> - function that will be executed with removed article
+                 or null if article wasn't found when job
+                will be done</dd>
+            <dt>find method</dt>
+            <dd>- should pass found article into callback, stops on first match.
+                <br>
+                <code>callbackFunction</code> - function that will be executed with
+                 found article as argument or with null if not. </dd>
+
+            <dt>query method</dt>
+            <dd>- should search required article and return sorted array of articles.
+                This method shoul calculate matched words in title and in a content.
+                Article with maximum of coincidences pops up and article with minimum of coincidences drowns.
+                Articles with the same amount of matched words will not be tested.
+                The method sould use only unique query words. It means thst from string 'hello hello friend' method
+                should use only 'hello' andи 'friend' words. The method should use non-case-sensitive approach. 
+                 </dd>
+               
+                <p>All methods  should check <code>_isBusy</code> and if <code>_isBusy</code> is 'true' the method should return 'false'.</p>
+                
+
+        </div>
+
+        <div class="col-md-12 col-lg-5" id="right-page">
+
+            <div class="application-area">
+                <h4>Newsletter</h4>
+
+                <div class="input-box bg-info">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" id="title" [(ngModel)]="title" placeholder="Add the title of an article" title.value=''
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <textarea rows="4" class="form-control" cols="100" name="text" id="content" [(ngModel)]="content" placeholder="Add the content of an article"
+                            content.value=''></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <button class="btn btn-success" (click)="addArticle(title, content, callbackFunction)">Add article</button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <!-- ---------------------------------------------------------------------------------------- -->
+                <div class="input-box bg-warning">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" name="removedTitle" [(ngModel)]="removedTitle"
+                             placeholder="Add the title of a removed article"
+                             removedTitle.value='' />
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <button class="btn btn-danger" (click)="removeArticle(removedTitle, callbackFunction)">
+                                Remove article</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- --------------------------------------------------------------------------- -->
+                <div class="input-box bg-success">
+                    <!-- <div class="form-inline"> -->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" name="queryTitle" [(ngModel)]="queryTitle" 
+                                placeholder="Add title to find article" queryTitle.value='' />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <button class="btn btn-info" (click)="find(queryTitle, callbackFunction)">Find article</button>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+
+
+                <div *ngIf="detectedArticle" class="article" [ngStyle]="{'border-color': borderColor}">
+                <h5>{{ detectedArticle.title }}</h5>
+                <p>{{ detectedArticle.content }}</p>
+            </div>
+
+                </div>
+
+                <!-- ------------------------------------------------------------------------------------- -->
+                <div class="input-box bg-success">
+                    <!-- <div class="form-inline"> -->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" name="queryString" [(ngModel)]="queryString"
+                                 placeholder="Add string to sort articles"
+                                    queryString.value='' />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <button class="btn btn-info" (click)="query(queryString)">Sort articles</button>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-12 col-lg-4" id="right-column">
+            <h5>Articles and useful information</h5>
+            <div class="article" [ngStyle]="{'border-color': borderColor}"
+             *ngFor="let article of articles; let i = index">
+                <h5>{{ articles[i].title }}</h5>
+                <p>{{ articles[i].content }}</p>
+                <a *ngIf='articles[i].url' href="{{ articles[i].url }}" target="_blank">Open original source</a>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>

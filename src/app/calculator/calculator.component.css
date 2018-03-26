@@ -1,0 +1,202 @@
+.row {
+  font-family: 'Roboto', sans-serif;
+  font-size:1em;
+  padding-bottom: 35px;
+}
+
+#left-page {
+  background: url(../../assets/images/makeup/open-book-left.jpg) right 65px no-repeat;
+    padding-top:70px;
+    padding-right: 35px;
+  }
+
+#right-page {
+  background: url(../../assets/images/makeup/open-book-right.jpg) left 65px no-repeat;
+  height: 870px;
+  padding-top: 70px;
+  min-width: 410px;
+}
+
+#right-column {
+  padding-top:70px;
+}
+  
+  .calculator {
+    margin: 1.5em auto;
+    font-size: 1.6em;
+    height: 550px;
+    width: 400px;
+    padding: 20px;
+    background: url(./images/calculator.png) top no-repeat;
+  }
+  
+  .input {
+    font-family: 'digital-7-italic';
+    margin: 73px auto 50px;
+    border: 1px solid #bbb;
+    border-radius: 1px;
+    height: 87px;
+    width: 310px;
+    padding-bottom: 15px;
+    text-align: right;
+    line-height: 1.2em;
+    font-size: 2.5em;
+    overflow-y: hidden;
+    transition: all .2s ease-in-out;
+  }
+  
+  .input:hover {
+    border: 1px solid #ddd;
+    -webkit-box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  }
+  
+  .operators div {
+    display: inline-block;
+    border: 1px solid #bbb;
+    border-radius: 7px;
+    width: 80px;
+    text-align: center;
+    margin: 0 4px 20px 0;
+    cursor: pointer;
+    background-color: rgb(81, 174, 70);
+    transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
+  }
+  
+  .operators div:hover {
+    background-color: rgb(0, 160, 0);
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    border-color: #aaa;
+  }
+  
+  .operators div:active {
+    font-weight: bold;
+  }
+  
+  .leftPanel {
+    width: 274px;
+    float: left;
+  }
+  
+  .numbers div {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    width: 80px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px 4px 10px 0;
+    cursor: pointer;
+    background-color: rgb(88, 175, 71);
+    transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
+  }
+  
+  .numbers div:hover {
+    background-color: rgb(0, 160, 0);
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    border-color: #bbb;
+  }
+  
+  .numbers div:active {
+    font-weight: bold;
+  }
+  
+  div.equal {
+    width: 80px;
+    display: block;
+    border: 1px solid rgb(40, 109, 0);
+    border-radius: 7px;
+    text-align: center;
+    padding: 52px 10px;
+    margin: 0 6px 10px 0;
+    cursor: pointer;
+    color: black;
+    background-color: rgb(83, 166, 68);
+    transition: all .2s ease-in-out;
+    float: right;
+  }
+  
+  div.equal:hover {
+    background-color: rgb(0, 160, 0);
+    -webkit-box-shadow: 0px 4px 4px 4px rgba(0, 38, 0, 0.2);
+    box-shadow: 0px 1px 4px 0px rgba(0, 38, 0, 0.2);
+    border-color: rgb(162, 163, 162);
+  }
+  
+  div.equal:active {
+    font-weight: bold;
+  }
+  
+  div.stepBack {
+    display: block;
+    border: 1px solid green;
+    border-radius: 1px;
+    width: 80px;
+    text-align: center;
+    padding: 12px 10px;
+    margin: 10px 6px 10px 0;
+    cursor: pointer;
+    color: rgb(3, 3, 3);
+    background-color: rgb(255, 217, 86);
+    transition: all .2s ease-in-out;
+    float: right;
+    border-radius: 7px 7px 20px 7px;
+  }
+  
+  div.stepBack:hover {
+    background-color: rgb(255, 209, 5);
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    border-color: rgb(162, 163, 162);
+  }
+  
+  div.stepBack:active {
+    font-weight: bold;
+  }
+
+
+  @media screen and (max-width: 992px) {
+
+    .row {
+      background: url(../../assets/images/makeup/open-book-right-fragment.jpg) left repeat-y;
+    }
+ 
+    #left-page, #right-page {
+      background: none;
+      border-style: none;
+    }
+
+    #left-page, #right-column {
+      padding-left: 35px;
+    }
+  
+    .timer {
+      min-width: 300px;
+      }
+  
+    #left-page {
+        padding-right: 15px;
+    }
+  
+    #right-page {
+        padding: 0;
+        min-width: 320px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+   
+   
+  }
+  
+  
+  
+    @font-face {
+     font-family: "digital-7-italic"; 
+     src: url("../../assets/fonts/digital-7-italic.ttf");
+     /* font-stretch: ultra-condensed; */
+     /* font-style: normal;  */
+     /* font-weight: normal;  */
+    } 

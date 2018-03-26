@@ -1,0 +1,25 @@
+#clock {
+	width:10.0em;
+	height:10.0em;
+	position:relative;
+  	left:50%;
+	margin-left:-5em;
+}
+
+#timer {
+	width: 60%;
+	height: 26%;
+	font-size:220%;
+	color: grey;
+	position: absolute;
+	top:34%;
+	left:20%;
+}
+
+.dash {
+	width:0.28em;
+	height:0.75em;
+	background:grey;
+	position: absolute;
+	left:50%;
+}

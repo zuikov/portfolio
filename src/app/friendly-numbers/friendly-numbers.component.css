@@ -1,0 +1,116 @@
+.row {
+  font-family: 'Roboto', sans-serif;
+  font-size:1em;
+  padding-bottom: 35px;
+}
+
+#left-page {
+  background: url(../../assets/images/makeup/open-book-left.jpg) right 65px no-repeat;
+  padding-top:70px;
+  padding-right: 35px;
+  border-width: 1px;
+  border-color: black;
+  }
+
+#right-page {
+background: url(../../assets/images/makeup/open-book-right.jpg) left 65px no-repeat;
+padding-top:70px;
+padding: 0;
+}
+
+#right-column {
+  padding-top:70px;
+}
+
+.application-area {
+    margin: 80px 0 0 10px; 
+    padding:15px 20px 15px 80px; 
+    border:1px solid #999999; 
+    border-radius: 15px 10px 10px 10px; 
+    -moz-border-radius:15px 10px 10px 10px;
+    box-shadow: 2px 3px 0 #999999; 
+    -moz-box-shadow:2px 2px 3px 0 #999999; 
+    -webkit-box-shadow: #999 2px 2px 3px 0; 
+    background-position:20px 50%; 
+    background-repeat:no-repeat; 
+    position:relative; 
+    text-align:justify;
+    min-height: 600px;
+}
+
+.input-box {
+  padding-top:5px;
+  margin-bottom: 5px;
+  border:1px solid #999999; 
+}
+
+.btn {
+  width: 160px;
+}
+
+
+
+.result{
+  text-align: center;
+  padding: 10px;
+}
+
+.badge {
+  float: right
+}
+
+.btn {
+  width: 135px;
+  margin-top: 20px;
+}
+
+
+
+.complectionRate {
+  float: right;
+}
+
+.leftWhiteSpace {
+  margin-left: 5px;
+}
+
+#resultView {
+  text-align: center;
+}
+
+
+
+
+@media screen and (max-width: 992px) {
+
+  .row {
+    background: url(../../assets/images/makeup/open-book-right-fragment.jpg) left repeat-y;
+  }
+ 
+  #left-page, #right-page {
+    background: none;
+    border-style: none;
+  }
+
+  #left-page, #right-column {
+    padding-left: 35px;
+  }
+
+  .timer {
+    min-width: 300px;
+    }
+
+  #left-page {
+      padding-right: 15px;
+  }
+
+  #right-page {
+      padding: 0;
+      min-width: 320px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+ 
+ 
+}

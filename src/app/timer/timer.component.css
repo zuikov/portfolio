@@ -1,0 +1,64 @@
+.row {
+  font-family: 'Roboto', sans-serif;
+  font-size:1em;
+  padding-bottom: 35px;
+}
+
+#left-page {
+  background: url(../../assets/images/makeup/open-book-left.jpg) right 65px no-repeat;
+  padding-top:70px;
+  padding-right: 35px;
+  }
+
+#right-page {
+background: url(../../assets/images/makeup/open-book-right.jpg) left 65px no-repeat;
+padding-top:70px;
+min-width: 445px;
+}
+
+#right-column {
+  padding-top:70px;
+}
+
+.btn {
+  width: 135px;
+}
+
+.timer {
+  font-size:2em;
+  background: white;
+  height:25em;
+  min-width: 435px;
+  padding-top: 40px;
+	text-align:center;
+  background: url(./images/countdown-timer.png) top no-repeat;
+  }
+
+@media screen and (max-width: 992px) {
+ 
+  .row {
+    background: url(../../assets/images/makeup/open-book-right-fragment.jpg) left repeat-y;
+  }
+
+  #left-page, #right-page {
+    background: none;
+    border-style: none;
+  }
+
+  #left-page, #right-column {
+    padding-left: 35px;
+  }
+
+  .timer {
+    min-width: 300px;
+    }
+
+  #left-page {
+      padding-right: 15px;
+  }
+
+  #right-page {
+      padding: 0;
+      min-width: 320px;
+  }
+}

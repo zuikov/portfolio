@@ -1,0 +1,26 @@
+<div class='controlPanel'>
+    <div class='timeInput'>
+        <input class="form-control" size='1' maxlength='2' 
+        (keyup)="setMinutes(minutes)" (keyup)="setTime(minutes, seconds)" 
+        [(ngModel)]="minutes"
+        placeholder="01" (contextmenu)="false" />
+    </div>
+
+    <p class='colon'>:</p>
+
+    <div class='timeInput'>
+        <input class="form-control" size='1' maxlength='2' 
+        (keyup)="setSeconds(seconds)" (keyup)="setTime(minutes, seconds)"
+        [(ngModel)]="seconds"
+        placeholder="10" (contextmenu)="false" />
+    </div>
+
+
+
+    <div class="col-md-12">
+        <p class='note'>MINUTES and SECONDS setting</p>
+    </div>
+
+
+
+</div>

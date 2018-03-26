@@ -1,0 +1,14 @@
+.row {
+    height: 100vh;
+    background: url(./images/forest.jpg) bottom no-repeat;
+    background-color: gray;
+}
+
+.col-md-12 {
+    height: 320px;
+}
+
+#footer {
+    margin-bottom: 40px;
+}
+

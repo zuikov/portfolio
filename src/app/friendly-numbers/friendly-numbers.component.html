@@ -1,0 +1,143 @@
+<div class="container-fluid">
+    <div class="row" id="section3">
+        <div class="col-md-12 col-lg-3" id="left-page">
+            <h5>Technical design specification</h5>
+            <h6>Friendly Numbers: What could possibly make two numbers friendly?</h6>
+            <p>Well, mathematicians have decided that two numbers are considered friendly (or as often used in the more sophisticated
+                literature, “amicable”) if the sum of the proper divisors of one equals the second and the sum of the proper
+                divisors of the second number equals the first number. Have a look at the smallest pair of friendly numbers:
+                220 and 284.
+                <br> The proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110. Their sum is 1 + 2 + 4 + 5 +
+                10 + 11 + 20 + 22 + 44 + 55 + 110 = 284.
+                <br> The proper divisors of 284 are 1, 2, 4, 71, and 142, and their sum is 1 + 2 + 4 + 71 + 142 = 220.
+                <br> This shows the two numbers are friendly numbers. The second pair of friendly numbers to be discovered (by
+                Pierre de Fermat, 1601 – 1665) was 17296 and 18416. The sum of the proper factors of 17296 is 1 + 2 + 4 +
+                8 + 16 + 23 + 46 + 47 + 92 + 94 + 184 + 188 + 368 + 376 + 752 + 1081 + 2162 + 4324 + 8648 = 18416 The sum
+                of the proper factors of 18416 is 1 + 2 + 4 + 8 + 16 + 1,151 + 2,302 + 4,604 + 9,208 = 17296 Here are a few
+                more friendly pairs in the table on the left.</p>
+
+            <p>
+                There are some big projects in the world for calculating friendly nunbers. And there are a lot of complex technologies to
+                make this calgilation faster. Actually, this project was a weekend day task and the goal was to achieve a
+                maximum calculation speed under that circumstances. Generator function in friendly-numbers service helps
+                to interact with this app.
+            </p>
+
+        </div>
+
+        <div class="col-md-12 col-lg-5" id="right-page">
+
+            <div class="application-area">
+                <h4>Friendly numbers</h4>
+
+                <div class="input-box bg-info">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="number" class="form-control" id="start" [(ngModel)]="start" placeholder="Start of the interval - positive integer number"
+                                start.value='' />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="number" class="form-control" id="end" [(ngModel)]="end" placeholder="End of the interval - positive integer number"
+                                end.value='' />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <button class="btn btn-success" [disabled]="isFindDisabled" (click)="startCalculate()" (click)="calculateFriendlyNumbers(start, end)">Find numbers</button>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-danger" [disabled]="isStopDisabled" (click)="stopCalculating()">Stop calculating</button>
+                        </div>
+
+                    </div>
+
+
+                    <div class="complectionRate">
+                        <h5 class="leftWhiteSpace">complection rate</h5>
+                    </div>
+
+                    <div class="complectionRate">
+                        <h5 *ngIf="progressbar">{{progressbar }} %</h5>
+                    </div>
+
+                </div>
+
+
+                <p>
+                    <ngb-progressbar type="success" [value]="progressbar" [striped]="true" [animated]="true"></ngb-progressbar>
+                </p>
+
+                <div class="input-box bg-light" id="resultView">
+
+
+                    <table class="table table-bordered table-striped table-sm">
+                        <thead class="thead-light">
+                            <tr>
+                                <h5>Calculated pairs</h5>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let pair of result; let i = index">
+                                <td>{{ result[i] }}
+                                </td>
+                            </tr>
+
+                            <tr *ngIf="finishMessage">
+                                <td>{{ finishMessage }}
+                                </td>
+                            </tr>
+
+                            <tr *ngIf="stopCalculate">
+                                <td>Calculating is stopped
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6 col-lg-2" id="right-column">
+
+            <table class="table table-bordered table-striped table-sm">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="text-center">Pairs of friendly numbers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pair of friendlyPairFirstPart; let i = index">
+                        <td class="text-center">{{ friendlyPairFirstPart[i].pair }}
+                            <span *ngIf='friendlyPairFirstPart[i].author' class="badge badge-info" placement="left" ngbTooltip='{{ friendlyPairFirstPart[i].author }}'>Author</span>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="col-md-6 col-lg-2" id="right-column">
+            <table class="table table-bordered table-striped table-sm">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="text-center">Pairs of friendly numbers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pair of friendlyPairSecondPart; let i = index">
+                        <td class="text-center">{{ friendlyPairSecondPart[i].pair }}
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-lg-3" id="left-page">
+          <h5>Technical design specification</h5>
+            <p>It would be a traditional calculator, but it has two special details:
+               undo button and a command pattern inside.</p>
+            <p>Command pattern encapsulate a request as an object,
+               thereby letting you parameterize clients with different requests,
+               queue or log requests, and support undoable operations.</p>
+            <p>
+               So, there is a calculator with 4 basic operations: add, subtract, multiply and divide.
+               Each operation is encapsulated by a Command object.
+               The calculator maintains a stack of commands.
+               Each new command is executed and pushed onto the stack.
+               When an undo request arrives, it simply pops the last command
+               from the stack.
+            </p>   
+        </div>
+
+        <div class="col-md-12 col-lg-6" id="right-page">
+            <!-- <div class="application-area"> -->
+                <div class="calculator">
+                    <div class="input" id="input"></div>
+                    <div class="buttons">
+                        <div class="operators">
+                            <div>+</div>
+                            <div>-</div>
+                            <div>&times;</div>
+                            <div>&divide;</div>
+                        </div>
+                        <div class="leftPanel">
+                            <div class="numbers">
+                                <div>7</div>
+                                <div>8</div>
+                                <div>9</div>
+                            </div>
+                            <div class="numbers">
+                                <div>4</div>
+                                <div>5</div>
+                                <div>6</div>
+                            </div>
+                            <div class="numbers">
+                                <div>1</div>
+                                <div>2</div>
+                                <div>3</div>
+                            </div>
+                            <div class="numbers">
+                                <div>0</div>
+                                <div>.</div>
+                                <div id="clear">C</div>
+                            </div>
+                        </div>
+                        <div class="equal" id="result">=</div>
+                        <div class="stepBack" id="undo">undo</div>
+                    </div>
+                </div>
+
+            <!-- </div> -->
+        </div>
+
+        <div class="col-md-12 col-lg-3" id="right-column">
+                <p>A calculator is a device that performs arithmetic operations on numbers. The simplest calculators can do only
+                        addition, subtraction, multiplication, and division. More sophisticated calculators can handle exponential
+                        operations, roots, logarithms, trigonometric functions, and hyperbolic functions.</p>
+                    
+        </div>
+    </div>
+</div>

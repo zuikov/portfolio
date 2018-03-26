@@ -1,0 +1,55 @@
+<div class="container-fluid">
+
+  <div class="row" id="slider">
+    <div class="col-md-12" id="slider">
+      <ngb-carousel>
+          <ng-template ngbSlide *ngFor="let slide of slides">
+              <img src={{slide.url}} alt={{slide.alt}}>
+              <div class="carousel-caption">
+                <h3>{{slide.title}}</h3>
+                <p>{{slide.description}}</p>
+              </div>
+            </ng-template>
+      </ngb-carousel>
+    </div>
+    <div class="col-md-12">
+      <p class="bg-dark text-white">
+        What was my job? </p>
+      <p class="text-white">
+        All of this unique devices you can see on this page were created by me when I worked for LOT group,
+        Frunse Plant and for many other customers.
+        SolidWorks and common sense were my main instruments)
+        <br> I have calculated that at least four hundred thousand people use results of my work every day.
+        <br> What could be better?
+        <br>Only when your applications are useful for a bigger amount!
+      </p>
+    </div>
+  </div>
+
+  <div class="row" id="devices">
+      <div class="col-md-1 " *ngFor="let device of devices">
+        <div class="thumbnail">
+          <a href={{device.url}} target="_blank" class="text-dark">
+            <img src={{device.url}} alt="Turnstiles Skif in Baku" style="width:100%">
+            <div class="caption">
+              <p>{{device.description}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  <div class="row" id="photo">
+    <div class="col-md-2" *ngFor="let photo of photos">
+      <div class="thumbnail">
+        <a href={{photo.url}} target="_blank" class="text-dark">
+          <img src={{photo.url}} alt="Turnstiles Skif in Baku" style="width:100%">
+          <div class="caption">
+            <p>{{photo.description}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>

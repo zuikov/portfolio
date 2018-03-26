@@ -1,0 +1,20 @@
+.row {
+    background-color: gray;
+}
+
+.col-md-12 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#slider {
+    padding-top:37px;
+}
+
+#photo {
+    padding-bottom: 40px;
+}
+
+.caption {
+    text-align: center;
+}

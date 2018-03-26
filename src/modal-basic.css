@@ -1,0 +1,8 @@
+.modal-header, .modal-body, .modal-footer{
+  font-family: 'Roboto', sans-serif;
+  font-size:1em;
+}
+
+.modal-body {
+    text-align: justify;
+}
