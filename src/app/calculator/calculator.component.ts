@@ -12,14 +12,14 @@ export class CalculatorComponent implements OnInit {
 
     function add(a: number, b: number) { return a + b; }
     function subtraction(a: number, b: number) { return a - b; }
-    function multiplication(a: number, b: number) { return +(a * b); }
-    function division(a: number, b: number) { return +(a / b); }
+    function multiplication(a: number, b: number) { return a * b; }
+    function division(a: number, b: number) { return a / b; }
 
     class Command {
       execute: Function;
       undo: Function;
-      value: number;
-      constructor(execute: Function, undo: Function, value: number) {
+      value: string;
+      constructor(execute: Function, undo: Function, value: string) {
         this.execute = execute;
         this.undo = undo;
         this.value = value;
@@ -27,25 +27,25 @@ export class CalculatorComponent implements OnInit {
     }
 
     class AddCommand {
-      constructor(value: number) {
+      constructor(value: string) {
         return new Command(add, subtraction, value);
       }
     }
 
     class SubtractionCommand {
-      constructor(value: number) {
+      constructor(value: string) {
         return new Command(subtraction, add, value);
       }
     }
 
     class MultiplicationCommand {
-      constructor(value: number) {
+      constructor(value: string) {
         return new Command(multiplication, division, value);
       }
     }
 
     class DivisionCommand {
-      constructor(value: number) {
+      constructor(value: string) {
         return new Command(division, multiplication, value);
       }
     }
@@ -61,7 +61,7 @@ export class CalculatorComponent implements OnInit {
       }
 
       execute(command) {
-        this._current = command.execute(this._current, command.value);
+        this._current = command.execute(+this._current, +command.value);
         this._commands.push(command);
       }
 
@@ -175,9 +175,14 @@ export class CalculatorComponent implements OnInit {
       undoString.push(inputString);
 
       // forming an array of numbers. eg for above string it will be: numbers = ["10", "26", "33", "56", "34", "23"]
-      let numbers: string[] = inputString.split(/\+|\-|\×|\÷/g);
+      let numbers = inputString.split(/\+|\-|\×|\÷/g);
 
-      // let numbers = numbersString.map((item) => {
+      // let numbers: number[] = [];
+      // for(let i = 0; i < numbersString.length; i++) {
+      //   numbers[i] = parseFloat(numbersString[i]);
+      // };
+
+      // let numbers: void[] | number[] = numbersString.map((item) => {
       //   parseFloat(item);
       // });
 
@@ -192,10 +197,19 @@ export class CalculatorComponent implements OnInit {
       // the final element remaining in the array will be the output
 
       let divide = operators.indexOf("÷");
+      console.log('divide1', divide);
       while (divide != -1) {
-        instance.execute(new AddCommand(parseFloat(numbers[divide])));
-        instance.execute(new DivisionCommand(parseFloat(numbers[divide + 1])));
+        console.log('divide2', divide);
+        console.log('instance.execute new AddCommand', instance.execute(new AddCommand(numbers[divide])));
+        console.log('instance.execute new DivisionCommand', instance.execute(new DivisionCommand(numbers[divide + 1])));
+        // instance.execute(new AddCommand(numbers[divide]));
+        // instance.execute(new DivisionCommand(numbers[divide + 1]));
+        
+        console.log(' AddCommand', new AddCommand(numbers[divide]));
+        console.log(' DivisionCommand', new DivisionCommand(numbers[divide + 1]));
+
         numbers.splice(divide, 2, instance.getCurrentValue().toString());
+        console.log('instance.getCurrentValue', instance.getCurrentValue());
         operators.splice(divide, 1);
         divide = operators.indexOf("÷");
         instance._currentSum += instance._current;
@@ -204,9 +218,10 @@ export class CalculatorComponent implements OnInit {
 
       let multiply = operators.indexOf("×");
       while (multiply != -1) {
-        instance.execute(new AddCommand(parseFloat(numbers[multiply])));
-        instance.execute(new MultiplicationCommand(parseFloat(numbers[multiply + 1])));
+        instance.execute(new AddCommand(numbers[multiply]));
+        instance.execute(new MultiplicationCommand(numbers[multiply + 1]));
         numbers.splice(multiply, 2, instance.getCurrentValue().toString());
+        console.log('instance.getCurrentValue', instance.getCurrentValue());
         operators.splice(multiply, 1);
         multiply = operators.indexOf("×");
         instance._currentSum += instance._current;
@@ -214,10 +229,19 @@ export class CalculatorComponent implements OnInit {
       }
 
       let subtract = operators.indexOf("-");
+        console.log('subtract1', subtract);
       while (subtract != -1) {
-        instance.execute(new AddCommand(parseFloat(numbers[subtract])));
-        instance.execute(new SubtractionCommand(parseFloat(numbers[subtract + 1])));
+        console.log('subtract2', subtract);
+        console.log('instance.execute new AddCommand', instance.execute(new AddCommand(numbers[subtract])));
+        console.log('instance.execute new SubtractionCommand', instance.execute(new SubtractionCommand(numbers[subtract + 1])));
+        // instance.execute(new AddCommand(numbers[subtract]));
+        // instance.execute(new SubtractionCommand(numbers[subtract + 1]));
+
+        console.log(' AddCommand', new AddCommand(numbers[subtract]));
+        console.log(' DivisionCommand', new SubtractionCommand(numbers[subtract + 1]));
+
         numbers.splice(subtract, 2, instance.getCurrentValue().toString());
+        console.log('instance.getCurrentValue', instance.getCurrentValue());
         operators.splice(subtract, 1);
         subtract = operators.indexOf("-");
         instance._currentSum += instance._current;
@@ -226,10 +250,12 @@ export class CalculatorComponent implements OnInit {
 
       let add = operators.indexOf("+");
       while (add != -1) {
-        // using parseFloat is necessary, otherwise it will result in string concatenation :)
-        instance.execute(new AddCommand(parseFloat(numbers[add])));
-        instance.execute(new AddCommand(parseFloat(numbers[add + 1])));
+        // using parseFloat is necessary, otherwise it will result in string concatenation 
+        
+        instance.execute(new AddCommand( numbers[add]) );
+        instance.execute(new AddCommand( numbers[add + 1]) );
         numbers.splice(add, 2, instance.getCurrentValue().toString());
+        console.log('instance.getCurrentValue', instance.getCurrentValue());
         operators.splice(add, 1);
         add = operators.indexOf("+");
         instance._currentSum += instance._current;

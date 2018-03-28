@@ -31,7 +31,7 @@ min-width: 445px;
   min-width: 435px;
   padding-top: 40px;
 	text-align:center;
-  background: url(./images/countdown-timer.png) top no-repeat;
+  background: url(images/countdown-timer.png) top no-repeat;
   }
 
 @media screen and (max-width: 992px) {

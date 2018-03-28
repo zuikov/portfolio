@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col-md-12 col-lg-3" id="left-page">
           <h5>Technical design specification</h5>
-            <p>It would be a traditional calculator, but it has two special details:
-               undo button and a command pattern inside.</p>
-            <p>Command pattern encapsulate a request as an object,
+            <p>It would be a traditional calculator, but it should have two special details:
+               undo button and realisation of a command pattern inside.</p>
+            <p>Usuallly Command pattern means encapsulating a request as an object,
                thereby letting you parameterize clients with different requests,
                queue or log requests, and support undoable operations.</p>
             <p>
@@ -59,9 +59,21 @@
         </div>
 
         <div class="col-md-12 col-lg-3" id="right-column">
-                <p>A calculator is a device that performs arithmetic operations on numbers. The simplest calculators can do only
-                        addition, subtraction, multiplication, and division. More sophisticated calculators can handle exponential
-                        operations, roots, logarithms, trigonometric functions, and hyperbolic functions.</p>
+            <h5>Realisation</h5>
+                <p>Pattern Command encapsulate the calling of a method as an object
+                    Есть четыре функции, которые описывают простейшие математические действия:
+                    add, substraction, multiplication, division.
+                    Есть класс Command, который принимает execute, undu and value and writes it in to the "this".
+                    Есть классы-обертки, которые возвращают нашу команду и по сути являются фабрикой.
+
+                    Есть класс калькулятор 
+                    который хранит массив комманд в this._commands
+                    и текущее значение вычислений в this._current
+                    У него есть метод execute, который записывает в current результат выполнения команды.
+
+
+
+                </p>
                     
         </div>
     </div>

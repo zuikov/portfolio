@@ -27,7 +27,7 @@
     height: 550px;
     width: 400px;
     padding: 20px;
-    background: url(./images/calculator.png) top no-repeat;
+    background: url(../../assets/images/calculator.png) top no-repeat;
   }
   
   .input {
