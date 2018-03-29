@@ -5,13 +5,13 @@
 }
 
 #left-page {
-  background: url(../../assets/images/makeup/open-book-left.jpg) right 65px no-repeat;
+  background: url(/assets/images/makeup/open-book-left.jpg) right 65px no-repeat;
     padding-top:70px;
     padding-right: 35px;
   }
 
 #right-page {
-  background: url(../../assets/images/makeup/open-book-right.jpg) left 65px no-repeat;
+  background: url(/assets/images/makeup/open-book-right.jpg) left 65px no-repeat;
   height: 870px;
   padding-top: 70px;
   min-width: 410px;
@@ -27,7 +27,7 @@
     height: 550px;
     width: 400px;
     padding: 20px;
-    background: url(../../assets/images/calculator.png) top no-repeat;
+    background: url(/assets/images/calculator.png) top no-repeat;
   }
   
   .input {
@@ -160,7 +160,7 @@
   @media screen and (max-width: 992px) {
 
     .row {
-      background: url(../../assets/images/makeup/open-book-right-fragment.jpg) left repeat-y;
+      background: url(/assets/images/makeup/open-book-right-fragment.jpg) left repeat-y;
     }
  
     #left-page, #right-page {
@@ -195,7 +195,7 @@
   
     @font-face {
      font-family: "digital-7-italic"; 
-     src: url("../../assets/fonts/digital-7-italic.ttf");
+     src: url("/assets/fonts/digital-7-italic.ttf");
      /* font-stretch: ultra-condensed; */
      /* font-style: normal;  */
      /* font-weight: normal;  */

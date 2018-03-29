@@ -5,13 +5,13 @@
 }
 
 #left-page {
-  background: url(../../assets/images/makeup/open-book-left.jpg) right 65px no-repeat;
+  background: url(/assets/images/makeup/open-book-left.jpg) right 65px no-repeat;
   padding-top:70px;
   padding-right: 35px;
   }
 
 #right-page {
-background: url(../../assets/images/makeup/open-book-right.jpg) left 65px no-repeat;
+background: url(/assets/images/makeup/open-book-right.jpg) left 65px no-repeat;
 padding-top:70px;
 min-width: 445px;
 }
@@ -31,13 +31,13 @@ min-width: 445px;
   min-width: 435px;
   padding-top: 40px;
 	text-align:center;
-  background: url(images/countdown-timer.png) top no-repeat;
+  background: url(/assets/images/countdown-timer.png) top no-repeat;
   }
 
 @media screen and (max-width: 992px) {
  
   .row {
-    background: url(../../assets/images/makeup/open-book-right-fragment.jpg) left repeat-y;
+    background: url(/assets/images/makeup/open-book-right-fragment.jpg) left repeat-y;
   }
 
   #left-page, #right-page {

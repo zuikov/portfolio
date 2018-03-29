@@ -1,80 +1,88 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 col-lg-3" id="left-page">
-          <h5>Technical design specification</h5>
+            <h5>Technical design specification</h5>
             <p>It would be a traditional calculator, but it should have two special details:
-               undo button and realisation of a command pattern inside.</p>
-            <p>Usuallly Command pattern means encapsulating a request as an object,
-               thereby letting you parameterize clients with different requests,
-               queue or log requests, and support undoable operations.</p>
+                 undo button and realisation of
+                a command pattern inside.</p>
+            <p>Usuallly Command pattern means encapsulating a request as an object, thereby letting
+                 you parameterize clients
+                with different requests, queue or log requests, and support undoable operations.</p>
             <p>
-               So, there is a calculator with 4 basic operations: add, subtract, multiply and divide.
-               Each operation is encapsulated by a Command object.
-               The calculator maintains a stack of commands.
-               Each new command is executed and pushed onto the stack.
-               When an undo request arrives, it simply pops the last command
-               from the stack.
-            </p>   
+                So, there is a calculator with 4 basic operations: add, subtract, multiply and divide. 
+                Each operation is encapsulated by
+                a Command object. The calculator maintains a stack of commands. Each new command 
+                is executed and pushed onto
+                the stack. When an undo request arrives, it simply pops the last command from the stack.
+            </p>
         </div>
 
         <div class="col-md-12 col-lg-6" id="right-page">
-            <!-- <div class="application-area"> -->
-                <div class="calculator">
-                    <div class="input" id="input"></div>
-                    <div class="buttons">
-                        <div class="operators">
-                            <div>+</div>
-                            <div>-</div>
-                            <div>&times;</div>
-                            <div>&divide;</div>
-                        </div>
-                        <div class="leftPanel">
-                            <div class="numbers">
-                                <div>7</div>
-                                <div>8</div>
-                                <div>9</div>
-                            </div>
-                            <div class="numbers">
-                                <div>4</div>
-                                <div>5</div>
-                                <div>6</div>
-                            </div>
-                            <div class="numbers">
-                                <div>1</div>
-                                <div>2</div>
-                                <div>3</div>
-                            </div>
-                            <div class="numbers">
-                                <div>0</div>
-                                <div>.</div>
-                                <div id="clear">C</div>
-                            </div>
-                        </div>
-                        <div class="equal" id="result">=</div>
-                        <div class="stepBack" id="undo">undo</div>
+            <div class="calculator">
+                <div class="input" id="input"></div>
+                <div class="buttons">
+                    <div class="operators">
+                        <div>+</div>
+                        <div>-</div>
+                        <div>&#215;</div>
+                        <div>&#247;</div>
                     </div>
+                    <div class="leftPanel">
+                        <div class="numbers">
+                            <div>7</div>
+                            <div>8</div>
+                            <div>9</div>
+                        </div>
+                        <div class="numbers">
+                            <div>4</div>
+                            <div>5</div>
+                            <div>6</div>
+                        </div>
+                        <div class="numbers">
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                        </div>
+                        <div class="numbers">
+                            <div>0</div>
+                            <div>.</div>
+                            <div id="clear">C</div>
+                        </div>
+                    </div>
+                    <div class="equal" id="result">=</div>
+                    <div class="stepBack" id="undo">undo</div>
                 </div>
-
-            <!-- </div> -->
+            </div>
         </div>
 
         <div class="col-md-12 col-lg-3" id="right-column">
             <h5>Realisation</h5>
-                <p>Pattern Command encapsulate the calling of a method as an object
-                    Есть четыре функции, которые описывают простейшие математические действия:
-                    add, substraction, multiplication, division.
-                    Есть класс Command, который принимает execute, undu and value and writes it in to the "this".
-                    Есть классы-обертки, которые возвращают нашу команду и по сути являются фабрикой.
-
-                    Есть класс калькулятор 
-                    который хранит массив комманд в this._commands
-                    и текущее значение вычислений в this._current
-                    У него есть метод execute, который записывает в current результат выполнения команды.
-
-
-
-                </p>
-                    
+            <p>There is a Command pattern realisation. 
+                <br> It encapsulates the calling
+                 of a method as an object.
+                <br> There are four function for simple math operations:
+                <br>
+                <code>add</code>,
+                <code>substraction</code>,
+                <code>multiplication</code>,
+                <code>division</code>.
+                <br> There is a class
+                <code>Command</code> which receives
+                <code>execute</code>,
+                <code>undo</code> and
+                <code>value</code> and writes it in to the "
+                <code>this</code>".
+                <br> And there are some wrapper-classes which return our commands and actually
+                 they are used as a Factory.
+                <br> And there is a
+                <code>Calculator</code> class.
+                <br> It stores array of commands in
+                <code>this._commands</code> and stores current value of calculation in
+                <code>this._current</code>.
+                <br> And it has
+                <code>execute</code> method which writes command result in
+                <code>current</code>.
+            </p>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 .row {
     height: 100vh;
-    background: url(./images/forest.jpg) bottom no-repeat;
+    background: url(/assets/images/forest.jpg) bottom no-repeat;
     background-color: gray;
 }
 

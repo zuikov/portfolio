@@ -2,8 +2,6 @@ import { AfterViewInit, ViewChild } from '@angular/core';
 
 import { Component, OnInit, Input } from '@angular/core';
 
-// import { TimerService }     from '../timer/timer.service';
-
 import { TimerClockComponent } from '../timer-clock/timer-clock.component';
 import { TimerFormComponent } from '../timer-form/timer-form.component';
 
@@ -12,7 +10,6 @@ import { TimerFormComponent } from '../timer-form/timer-form.component';
   selector: 'app-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css'],
-  // providers: [TimerService]
 })
 
 
@@ -31,11 +28,8 @@ export class TimerComponent implements AfterViewInit {
   @ViewChild(TimerFormComponent)
   private timerFormComponent: TimerFormComponent;
 
-  
-
   ngAfterViewInit() {
     this.timerClockComponent.dial.addEventListener('click', (e) => {
-      console.log('this.timerClockComponent2', this.timerClockComponent);
       let target = e.target,
         currentSecond = +target.id;
       if (isNaN(currentSecond)) return currentSecond;
@@ -58,7 +52,6 @@ constructor() {
 //  Controls for the form and timer elements
 
 start() {
-  // e.preventDefault();
   this.timerClockComponent.isStart = true;
   this.timeCounter();
   this.timerClockComponent.changeClockColor(1, this.timerClockComponent.activeColor, this.timerClockComponent.activeColor);
@@ -67,7 +60,6 @@ start() {
 }
 
 pause() {
-  // e.preventDefault();
   if (!this.timerClockComponent.isPause) {
     clearTimeout(this.timerId);
     this.pauseButton = 'Run the timer';
@@ -80,7 +72,6 @@ pause() {
 }
 
 reset() {
-  // e.preventDefault();
   this.startDisabled = false;
   this.pauseDisabled = true;
   this.resetDisabled = true;
@@ -124,10 +115,3 @@ reset() {
 
 }
   
-// Implements timer logic realization
-
-
-// // Controls for the form and timer elements
-
-
-// // Timer realisation
