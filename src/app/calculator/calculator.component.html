@@ -3,17 +3,17 @@
         <div class="col-md-12 col-lg-3" id="left-page">
             <h5>Technical design specification</h5>
             <p>It would be a traditional calculator, but it should have two special details:
-                 undo button and realisation of
+                 undo button and realization of
                 a command pattern inside.</p>
-            <p>Usuallly Command pattern means encapsulating a request as an object, thereby letting
+            <p>Usually Command pattern means encapsulating a request as an object, thereby letting
                  you parameterize clients
-                with different requests, queue or log requests, and support undoable operations.</p>
+                with different requests, queue or log requests, and support reverse operations.</p>
             <p>
                 So, there is a calculator with 4 basic operations: add, subtract, multiply and divide. 
                 Each operation is encapsulated by
                 a Command object. The calculator maintains a stack of commands. Each new command 
                 is executed and pushed onto
-                the stack. When an undo request arrives, it simply pops the last command from the stack.
+                the stack. When reverse operation request arrives, it simply pops the last command from the stack.
             </p>
         </div>
 
@@ -56,14 +56,14 @@
         </div>
 
         <div class="col-md-12 col-lg-3" id="right-column">
-            <h5>Realisation</h5>
-            <p>There is a Command pattern realisation. 
+            <h5>Realization</h5>
+            <p>There is a Command pattern realization. 
                 <br> It encapsulates the calling
                  of a method as an object.
                 <br> There are four function for simple math operations:
                 <br>
                 <code>add</code>,
-                <code>substraction</code>,
+                <code>subtraction</code>,
                 <code>multiplication</code>,
                 <code>division</code>.
                 <br> There is a class

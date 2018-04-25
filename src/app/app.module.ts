@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { FormsModule } from '@angular/forms'; 
 import { RouterModule, Routes } from '@angular/router';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // import the NgbModule coming from Ng-bootstra1
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalBasic } from '../modal-basic';
 import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 
@@ -17,7 +17,8 @@ import { HardwareProjectsComponent } from './hardware-projects/hardware-projects
 import { AboutMeComponent } from './about-me/about-me.component';
 import { SalaryComponent } from './salary/salary.component';
 import { ArticlesComponent } from './articles/articles.component';
-// import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
+
+// import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
 
 const appRoutes: Routes = [
   { path: 'timer', component: TimerComponent },
@@ -54,23 +55,22 @@ const appRoutes: Routes = [
     ArticlesComponent
   ],
   imports: [
-    RouterModule.forRoot(
-      appRoutes
-      // { enableTracing: true } // <-- debugging purposes only
-    ),
+    RouterModule.forRoot(appRoutes, { useHash: true }),
+    // RouterModule.forRoot(
+    //   appRoutes
+    //   // { enableTracing: true } // <-- debugging purposes only
+    // ),
     BrowserModule,
     FormsModule,
     NgbModule.forRoot() // Add Bootstrap module here.
   ],
+  // providers: [Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-// export class NgbdDropdownConfig {
-//   constructor(config: NgbDropdownConfig) {
-//     // customize default values of dropdowns used by this component tree
-//     config.placement = 'top-left';
-//     config.autoClose = false;
-//   }
+// export class HashLocationComponent {
+//   location: Location;
+//   constructor(location: Location) { this.location = location; }
 // }

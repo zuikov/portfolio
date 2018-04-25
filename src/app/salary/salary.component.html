@@ -7,7 +7,7 @@
                 <dt>participants</dt>
                 <dd>- predefined array of participants</dd>
                 <dt>pricing</dt>
-                <dd>- predefined object (keyvalue collection) of pricing </dd>
+                <dd>- predefined object (key value collection) of pricing </dd>
 
                 <dt>findParticipant method</dt>
                 <dd>- should pass found participant into callback, stops on first match.
@@ -37,13 +37,13 @@
                     participant wasn't found when job will be done</dd>
 
                 <dt>setPricing method</dt>
-                <dd>- should extends
+                <dd>- should extend
                     <code>this.pricing</code> with new field or change existing.
                     <br>
                     <code> callbackFunction</code> - function that will be executed when job will be done, doesn't take any arguments.</dd>
 
                 <dt>calculateSalary method</dt>
-                <dd>- should calculates salary of all participants in the given period periodInDays, has type number, one day
+                <dd>- should calculate salary of all participants in the given period periodInDays, has type number, one day
                     is equal 8 working hours </dd>
             </dl>
             <p>
@@ -51,7 +51,7 @@
                 callback.
                 <br> All methods which include callbackFunction in the arguments list should set isBusy to true value when start
                 their job and set it to false when finished.
-                <br> If isBusy is true method shuoldn't do any job and immediately return false.
+                <br> If isBusy is true method shouldn't do any job and immediately return false.
                 
 
             </p>

@@ -82,14 +82,6 @@ getPrimeDevedersSum(val) {
 
 };
 
-
-// Полифилл для IE и Safari
-// Number.isInteger = Number.isInteger || function (value) {
-//   return typeof value === 'number'
-//     && Number.isFinite(value)
-//     && !(value % 1);
-// };
-
 constructor() {  }
 
  

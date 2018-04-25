@@ -9,6 +9,11 @@
 
 #slider {
     padding-top:37px;
+    text-shadow: 1px 1px 2px black, 0 0 1em rgb(116, 110, 110);
+}
+
+#devices{
+    text-shadow:  0.5px 0.5px rgb(102, 91, 91), 0 0 1em  rgb(116, 110, 110); 
 }
 
 #photo {
